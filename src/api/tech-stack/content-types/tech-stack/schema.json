@@ -48,6 +48,12 @@
     "website": {
       "type": "string",
       "required": true
+    },
+    "position": {
+      "type": "integer",
+      "default": 99,
+      "max": 99,
+      "min": 1
     }
   }
 }
