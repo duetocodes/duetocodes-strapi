@@ -36,14 +36,18 @@
       }
     },
     "description": {
-      "type": "text",
-      "default": "No description",
+      "type": "richtext",
+      "default": "No description.",
       "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
+    },
+    "website": {
+      "type": "string",
+      "required": true
     }
   }
 }
