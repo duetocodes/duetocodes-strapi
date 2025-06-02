@@ -552,16 +552,22 @@ export interface ApiTechStackTechStack extends Struct.CollectionTypeSchema {
         };
       }> &
       Schema.Attribute.DefaultTo<'Tech'>;
-    position: Schema.Attribute.Integer &
+    publishedAt: Schema.Attribute.DateTime;
+    purpose: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    sortIndex: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
         {
-          max: 99;
-          min: 1;
+          max: 88;
+          min: 0;
         },
         number
       > &
-      Schema.Attribute.DefaultTo<99>;
-    publishedAt: Schema.Attribute.DateTime;
+      Schema.Attribute.DefaultTo<0>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

@@ -49,11 +49,19 @@
       "type": "string",
       "required": true
     },
-    "position": {
+    "sortIndex": {
       "type": "integer",
-      "default": 99,
-      "max": 99,
-      "min": 1
+      "default": 0,
+      "max": 88,
+      "min": 0
+    },
+    "purpose": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
