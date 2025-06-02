@@ -2,7 +2,6 @@ export default [
   'strapi::logger',
   'strapi::errors',
   'strapi::security',
-  // 'strapi::cors',
   {
     name: 'strapi::cors',
     config: {
@@ -19,3 +18,4 @@ export default [
   'strapi::favicon',
   'strapi::public',
 ];
+// 'strapi::cors',
