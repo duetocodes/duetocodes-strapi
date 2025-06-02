@@ -16,25 +16,6 @@
     }
   },
   "attributes": {
-    "logo": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "files",
-        "images"
-      ]
-    },
-    "name": {
-      "type": "string",
-      "required": true,
-      "default": "Tech",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "description": {
       "type": "richtext",
       "default": "No description.",
@@ -49,12 +30,6 @@
       "type": "string",
       "required": true
     },
-    "sortIndex": {
-      "type": "integer",
-      "default": 0,
-      "max": 88,
-      "min": 0
-    },
     "purpose": {
       "type": "string",
       "pluginOptions": {
@@ -62,6 +37,24 @@
           "localized": true
         }
       }
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "sortIndex": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
     }
   }
 }

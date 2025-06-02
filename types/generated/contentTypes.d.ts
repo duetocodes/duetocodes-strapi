@@ -542,16 +542,9 @@ export interface ApiTechStackTechStack extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::tech-stack.tech-stack'
     >;
-    logo: Schema.Attribute.Media<'files' | 'images'> &
+    logo: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
-    name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Schema.Attribute.DefaultTo<'Tech'>;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     purpose: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
@@ -562,7 +555,6 @@ export interface ApiTechStackTechStack extends Struct.CollectionTypeSchema {
     sortIndex: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
         {
-          max: 88;
           min: 0;
         },
         number
