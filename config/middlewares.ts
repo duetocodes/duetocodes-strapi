@@ -6,7 +6,7 @@ export default [
     name: 'strapi::cors',
     config: {
       origin: ['http://localhost:3000'], // 👈 Add your frontend domain here
-      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+      methods: ['GET'],
       headers: '*',
       credentials: true,
     },
@@ -18,4 +18,3 @@ export default [
   'strapi::favicon',
   'strapi::public',
 ];
-// 'strapi::cors',
