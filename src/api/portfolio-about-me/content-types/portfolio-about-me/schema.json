@@ -25,30 +25,14 @@
         "files"
       ]
     },
-    "introduction": {
-      "type": "text",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "education": {
+    "aboutMe": {
       "type": "text",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
-    },
-    "currentActivity": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      },
+      "required": true
     }
   }
 }
