@@ -16,28 +16,27 @@
       "default": "Freddie",
       "required": true
     },
-    "email": {
-      "type": "email",
-      "required": true,
-      "default": "duetocodes@outlook.com"
-    },
     "dob": {
       "type": "date"
     },
-    "location": {
-      "type": "string"
-    },
-    "instagram": {
-      "type": "string"
-    },
-    "linkedin": {
-      "type": "string"
-    },
-    "whatsapp": {
-      "type": "string"
-    },
     "github": {
       "type": "json"
+    },
+    "location": {
+      "type": "json"
+    },
+    "instagram": {
+      "type": "json"
+    },
+    "whatsapp": {
+      "type": "json"
+    },
+    "linkedin": {
+      "type": "json"
+    },
+    "email": {
+      "type": "json",
+      "required": true
     }
   }
 }

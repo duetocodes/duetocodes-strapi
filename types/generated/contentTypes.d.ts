@@ -567,19 +567,17 @@ export interface ApiPortfolioContactPortfolioContact
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     dob: Schema.Attribute.Date;
-    email: Schema.Attribute.Email &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'duetocodes@outlook.com'>;
+    email: Schema.Attribute.JSON & Schema.Attribute.Required;
     github: Schema.Attribute.JSON;
-    instagram: Schema.Attribute.String;
-    linkedin: Schema.Attribute.String;
+    instagram: Schema.Attribute.JSON;
+    linkedin: Schema.Attribute.JSON;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::portfolio-contact.portfolio-contact'
     > &
       Schema.Attribute.Private;
-    location: Schema.Attribute.String;
+    location: Schema.Attribute.JSON;
     name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'Freddie'>;
@@ -587,7 +585,7 @@ export interface ApiPortfolioContactPortfolioContact
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    whatsapp: Schema.Attribute.String;
+    whatsapp: Schema.Attribute.JSON;
   };
 }
 
