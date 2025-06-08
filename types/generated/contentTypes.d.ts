@@ -551,6 +551,46 @@ export interface ApiPortfolioAboutMePortfolioAboutMe
   };
 }
 
+export interface ApiPortfolioContactPortfolioContact
+  extends Struct.SingleTypeSchema {
+  collectionName: 'portfolio_contacts';
+  info: {
+    displayName: 'Portfolio/Contact';
+    pluralName: 'portfolio-contacts';
+    singularName: 'portfolio-contact';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dob: Schema.Attribute.Date;
+    email: Schema.Attribute.Email &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'duetocodes@outlook.com'>;
+    github: Schema.Attribute.JSON;
+    instagram: Schema.Attribute.JSON;
+    linkedin: Schema.Attribute.JSON;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::portfolio-contact.portfolio-contact'
+    > &
+      Schema.Attribute.Private;
+    location: Schema.Attribute.JSON;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Freddie'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    whatsapp: Schema.Attribute.JSON;
+  };
+}
+
 export interface ApiTechStackTechStack extends Struct.CollectionTypeSchema {
   collectionName: 'tech_stacks';
   info: {
@@ -1123,6 +1163,7 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::portfolio-about-me.portfolio-about-me': ApiPortfolioAboutMePortfolioAboutMe;
+      'api::portfolio-contact.portfolio-contact': ApiPortfolioContactPortfolioContact;
       'api::tech-stack.tech-stack': ApiTechStackTechStack;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
