@@ -1,0 +1,43 @@
+{
+  "kind": "singleType",
+  "collectionName": "portfolio_contacts",
+  "info": {
+    "singularName": "portfolio-contact",
+    "pluralName": "portfolio-contacts",
+    "displayName": "Portfolio/Contact"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "default": "Freddie",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "default": "duetocodes@outlook.com"
+    },
+    "dob": {
+      "type": "date"
+    },
+    "location": {
+      "type": "string"
+    },
+    "instagram": {
+      "type": "string"
+    },
+    "linkedin": {
+      "type": "string"
+    },
+    "whatsapp": {
+      "type": "string"
+    },
+    "github": {
+      "type": "json"
+    }
+  }
+}
