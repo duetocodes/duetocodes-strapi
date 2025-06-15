@@ -33,6 +33,17 @@
         }
       },
       "required": true
+    },
+    "socialMedia": {
+      "type": "dynamiczone",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "components": [
+        "shared.social-media"
+      ]
     }
   }
 }

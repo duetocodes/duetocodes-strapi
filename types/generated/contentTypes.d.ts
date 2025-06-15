@@ -545,6 +545,12 @@ export interface ApiPortfolioAboutMePortfolioAboutMe
       'api::portfolio-about-me.portfolio-about-me'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    socialMedia: Schema.Attribute.DynamicZone<['shared.social-media']> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_shared_social_medias",
+  "info": {
+    "displayName": "SocialMedia",
+    "icon": "question"
+  },
+  "options": {},
+  "attributes": {
+    "platform": {
+      "type": "string",
+      "required": true
+    },
+    "sortIndex": {
+      "type": "integer",
+      "required": true,
+      "default": 1
+    },
+    "type": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "personal",
+        "work"
+      ]
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "type": "string",
+      "default": "material-symbols:link-rounded",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
