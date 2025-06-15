@@ -549,6 +549,13 @@ export interface ApiPortfolioAboutMePortfolioAboutMe
       'oneToMany',
       'api::portfolio-about-me.portfolio-about-me'
     >;
+    profilePicture: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     socialMedia: Schema.Attribute.DynamicZone<['shared.social-media']> &
       Schema.Attribute.SetPluginOptions<{

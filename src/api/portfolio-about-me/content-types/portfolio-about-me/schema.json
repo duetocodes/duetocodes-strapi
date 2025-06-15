@@ -46,6 +46,19 @@
       "component": "shared.media",
       "repeatable": false,
       "required": true
+    },
+    "profilePicture": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
