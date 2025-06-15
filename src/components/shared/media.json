@@ -6,15 +6,11 @@
   },
   "options": {},
   "attributes": {
-    "file": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "audios",
-        "videos"
-      ]
+    "avatar": {
+      "type": "component",
+      "component": "shared.avatar",
+      "repeatable": false,
+      "required": true
     }
   }
 }

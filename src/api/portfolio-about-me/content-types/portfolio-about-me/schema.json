@@ -36,17 +36,6 @@
         "shared.social-media"
       ]
     },
-    "avatar": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "component": "shared.media",
-      "repeatable": false,
-      "required": true
-    },
     "profilePicture": {
       "type": "media",
       "pluginOptions": {

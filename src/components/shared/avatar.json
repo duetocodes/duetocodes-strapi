@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_avatars",
+  "info": {
+    "displayName": "avatar",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}
