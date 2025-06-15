@@ -36,7 +36,7 @@
       "repeatable": false,
       "required": true
     },
-    "socMed": {
+    "socialMedia": {
       "type": "component",
       "pluginOptions": {
         "i18n": {

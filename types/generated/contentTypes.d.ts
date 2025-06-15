@@ -550,7 +550,7 @@ export interface ApiPortfolioAboutMePortfolioAboutMe
       'api::portfolio-about-me.portfolio-about-me'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    socMed: Schema.Attribute.Component<'shared.social-media', true> &
+    socialMedia: Schema.Attribute.Component<'shared.social-media', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
