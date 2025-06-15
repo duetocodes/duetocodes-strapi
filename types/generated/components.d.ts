@@ -3,11 +3,11 @@ import type { Schema, Struct } from '@strapi/strapi';
 export interface SharedAvatar extends Struct.ComponentSchema {
   collectionName: 'components_shared_avatars';
   info: {
-    displayName: 'avatar';
+    displayName: 'Avatar';
     icon: 'picture';
   };
   attributes: {
-    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'>;
   };
 }
 
