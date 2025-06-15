@@ -553,7 +553,7 @@ export interface ApiPortfolioAboutMePortfolioAboutMe
     socialMedia: Schema.Attribute.Component<'shared.social-media', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     updatedAt: Schema.Attribute.DateTime;
