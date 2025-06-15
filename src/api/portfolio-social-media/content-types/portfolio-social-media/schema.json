@@ -63,7 +63,16 @@
           "localized": false
         }
       },
+      "default": "material-symbols:link-rounded",
       "required": true
+    },
+    "description": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
