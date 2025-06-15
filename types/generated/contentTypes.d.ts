@@ -541,13 +541,6 @@ export interface ApiPortfolioAboutMePortfolioAboutMe
           localized: false;
         };
       }>;
-    bvatar: Schema.Attribute.Component<'shared.avatar', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -557,12 +550,6 @@ export interface ApiPortfolioAboutMePortfolioAboutMe
       'api::portfolio-about-me.portfolio-about-me'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    socialMedia: Schema.Attribute.DynamicZone<['shared.social-media']> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     socMed: Schema.Attribute.Component<'shared.social-media', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

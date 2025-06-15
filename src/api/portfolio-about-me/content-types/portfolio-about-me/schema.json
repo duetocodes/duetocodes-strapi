@@ -25,17 +25,6 @@
       },
       "required": true
     },
-    "socialMedia": {
-      "type": "dynamiczone",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "components": [
-        "shared.social-media"
-      ]
-    },
     "avatar": {
       "type": "component",
       "pluginOptions": {
@@ -45,17 +34,6 @@
       },
       "component": "shared.avatar",
       "repeatable": false,
-      "required": true
-    },
-    "bvatar": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "component": "shared.avatar",
-      "repeatable": true,
       "required": true
     },
     "socMed": {
