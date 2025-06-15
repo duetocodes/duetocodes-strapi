@@ -534,8 +534,13 @@ export interface ApiPortfolioAboutMePortfolioAboutMe
           localized: true;
         };
       }>;
-    avatar: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
+    avatar: Schema.Attribute.Component<'shared.media', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

@@ -16,15 +16,6 @@
     }
   },
   "attributes": {
-    "avatar": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
-    },
     "aboutMe": {
       "type": "text",
       "pluginOptions": {
@@ -44,6 +35,17 @@
       "components": [
         "shared.social-media"
       ]
+    },
+    "avatar": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "shared.media",
+      "repeatable": false,
+      "required": true
     }
   }
 }
