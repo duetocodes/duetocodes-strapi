@@ -591,6 +591,74 @@ export interface ApiPortfolioContactPortfolioContact
   };
 }
 
+export interface ApiPortfolioSocialMediaPortfolioSocialMedia
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'portfolio_social_medias';
+  info: {
+    displayName: 'Portfolio/SocialMedia';
+    pluralName: 'portfolio-social-medias';
+    singularName: 'portfolio-social-media';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    icon: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::portfolio-social-media.portfolio-social-media'
+    >;
+    platform: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    sortIndex: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<1>;
+    type: Schema.Attribute.Enumeration<['personal', 'work']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+  };
+}
+
 export interface ApiTechStackTechStack extends Struct.CollectionTypeSchema {
   collectionName: 'tech_stacks';
   info: {
@@ -641,7 +709,7 @@ export interface ApiTechStackTechStack extends Struct.CollectionTypeSchema {
         },
         number
       > &
-      Schema.Attribute.DefaultTo<0>;
+      Schema.Attribute.DefaultTo<1>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1164,6 +1232,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::portfolio-about-me.portfolio-about-me': ApiPortfolioAboutMePortfolioAboutMe;
       'api::portfolio-contact.portfolio-contact': ApiPortfolioContactPortfolioContact;
+      'api::portfolio-social-media.portfolio-social-media': ApiPortfolioSocialMediaPortfolioSocialMedia;
       'api::tech-stack.tech-stack': ApiTechStackTechStack;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
