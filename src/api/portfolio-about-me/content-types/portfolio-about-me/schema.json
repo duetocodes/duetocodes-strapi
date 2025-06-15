@@ -57,6 +57,16 @@
       "component": "shared.avatar",
       "repeatable": true,
       "required": true
+    },
+    "socMed": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.social-media",
+      "repeatable": true
     }
   }
 }

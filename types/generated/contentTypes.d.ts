@@ -563,6 +563,12 @@ export interface ApiPortfolioAboutMePortfolioAboutMe
           localized: true;
         };
       }>;
+    socMed: Schema.Attribute.Component<'shared.social-media', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
