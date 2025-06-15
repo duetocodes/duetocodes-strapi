@@ -36,19 +36,6 @@
         "shared.social-media"
       ]
     },
-    "profilePicture": {
-      "type": "media",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "avatar": {
       "type": "component",
       "pluginOptions": {
@@ -58,6 +45,17 @@
       },
       "component": "shared.avatar",
       "repeatable": false,
+      "required": true
+    },
+    "bvatar": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "shared.avatar",
+      "repeatable": true,
       "required": true
     }
   }
