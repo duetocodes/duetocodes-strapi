@@ -13,7 +13,8 @@
     "sortIndex": {
       "type": "integer",
       "required": true,
-      "default": 1
+      "default": 1,
+      "min": 0
     },
     "type": {
       "type": "enumeration",

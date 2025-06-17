@@ -88,6 +88,12 @@ export interface SharedSocialMedia extends Struct.ComponentSchema {
     platform: Schema.Attribute.String & Schema.Attribute.Required;
     sortIndex: Schema.Attribute.Integer &
       Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
       Schema.Attribute.DefaultTo<1>;
     type: Schema.Attribute.Enumeration<['personal', 'work']> &
       Schema.Attribute.Required;

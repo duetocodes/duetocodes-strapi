@@ -53,6 +53,7 @@
     },
     "sortIndex": {
       "type": "integer",
+      "required": true,
       "default": 1,
       "min": 0
     }
