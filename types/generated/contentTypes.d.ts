@@ -602,6 +602,73 @@ export interface ApiPortfolioContactPortfolioContact
   };
 }
 
+export interface ApiPortfolioProjectPortfolioProject
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'portfolio_projects';
+  info: {
+    displayName: 'Portfolio/Project';
+    pluralName: 'portfolio-projects';
+    singularName: 'portfolio-project';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    componentName: Schema.Attribute.UID &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::portfolio-project.portfolio-project'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    sortIndex: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<1>;
+    tag: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPortfolioSocialMediaPortfolioSocialMedia
   extends Struct.CollectionTypeSchema {
   collectionName: 'portfolio_social_medias';
@@ -1250,6 +1317,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::portfolio-about-me.portfolio-about-me': ApiPortfolioAboutMePortfolioAboutMe;
       'api::portfolio-contact.portfolio-contact': ApiPortfolioContactPortfolioContact;
+      'api::portfolio-project.portfolio-project': ApiPortfolioProjectPortfolioProject;
       'api::portfolio-social-media.portfolio-social-media': ApiPortfolioSocialMediaPortfolioSocialMedia;
       'api::tech-stack.tech-stack': ApiTechStackTechStack;
       'plugin::content-releases.release': PluginContentReleasesRelease;
