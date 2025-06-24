@@ -52,15 +52,6 @@
       "default": 1,
       "min": 0
     },
-    "vueComponent": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "required": true
-    },
     "identifier": {
       "type": "string",
       "pluginOptions": {
