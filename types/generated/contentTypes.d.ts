@@ -589,6 +589,13 @@ export interface ApiPortfolioProjectPortfolioProject
           localized: true;
         };
       }>;
+    identifier: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

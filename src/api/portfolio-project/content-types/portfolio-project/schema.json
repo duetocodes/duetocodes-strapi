@@ -60,6 +60,16 @@
         }
       },
       "required": true
+    },
+    "identifier": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "required": true,
+      "unique": false
     }
   }
 }
