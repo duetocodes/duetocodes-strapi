@@ -5,7 +5,10 @@ export default [
   {
     name: 'strapi::cors',
     config: {
-      origin: ['http://localhost:3000'],
+      origin: [
+        'http://localhost:3000',
+        'https://roaring-kitsune-3a5d42.netlify.app',
+      ],
       methods: ['GET'],
       headers: '*',
       credentials: true,
