@@ -8,9 +8,11 @@ export default [
       origin: [
         'http://localhost:3000',
         'https://roaring-kitsune-3a5d42.netlify.app',
+        'https://duetocodes.com',          // Netlify production
+        'https://www.duetocodes.com',       // www version
       ],
-      methods: ['GET'],
-      headers: '*',
+      methods: ['GET', 'POST', 'PUT', 'DELETE'],
+      headers: ['Content-Type', 'Authorization'],
       credentials: true,
     },
   },
