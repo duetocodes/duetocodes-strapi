@@ -25,7 +25,17 @@
       },
       "required": true
     },
-    "avatar": {
+    "socialMedia": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "shared.social-media",
+      "repeatable": true
+    },
+    "avatar_light": {
       "type": "component",
       "pluginOptions": {
         "i18n": {
@@ -36,15 +46,38 @@
       "repeatable": false,
       "required": true
     },
-    "socialMedia": {
+    "avatar_dark": {
       "type": "component",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
-      "component": "shared.social-media",
-      "repeatable": true
+      "component": "shared.avatar",
+      "repeatable": false,
+      "required": true
+    },
+    "hero_light": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "shared.avatar",
+      "repeatable": false,
+      "required": true
+    },
+    "hero_dark": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "shared.avatar",
+      "repeatable": false,
+      "required": true
     }
   }
 }

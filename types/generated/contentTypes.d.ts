@@ -534,7 +534,14 @@ export interface ApiPortfolioAboutMePortfolioAboutMe
           localized: true;
         };
       }>;
-    avatar: Schema.Attribute.Component<'shared.avatar', false> &
+    avatar_dark: Schema.Attribute.Component<'shared.avatar', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    avatar_light: Schema.Attribute.Component<'shared.avatar', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -544,6 +551,20 @@ export interface ApiPortfolioAboutMePortfolioAboutMe
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    hero_dark: Schema.Attribute.Component<'shared.avatar', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    hero_light: Schema.Attribute.Component<'shared.avatar', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
