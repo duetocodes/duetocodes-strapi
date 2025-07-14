@@ -622,6 +622,12 @@ export interface ApiPortfolioProjectPortfolioProject
       'oneToMany',
       'api::portfolio-project.portfolio-project'
     >;
+    preview: Schema.Attribute.Component<'shared.avatar', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     sortIndex: Schema.Attribute.Integer &
       Schema.Attribute.Required &

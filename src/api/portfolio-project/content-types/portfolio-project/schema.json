@@ -61,6 +61,16 @@
       },
       "required": true,
       "unique": false
+    },
+    "preview": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "shared.avatar",
+      "repeatable": false
     }
   }
 }
