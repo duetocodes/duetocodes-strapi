@@ -78,6 +78,17 @@
       "component": "shared.avatar",
       "repeatable": false,
       "required": true
+    },
+    "og_banner": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "shared.avatar",
+      "repeatable": false,
+      "required": true
     }
   }
 }

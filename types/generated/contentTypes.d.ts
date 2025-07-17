@@ -570,6 +570,13 @@ export interface ApiPortfolioAboutMePortfolioAboutMe
       'oneToMany',
       'api::portfolio-about-me.portfolio-about-me'
     >;
+    og_banner: Schema.Attribute.Component<'shared.avatar', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     socialMedia: Schema.Attribute.Component<'shared.social-media', true> &
       Schema.Attribute.SetPluginOptions<{
