@@ -1,0 +1,81 @@
+name: Auto Update Strapi
+
+on:
+  schedule:
+    - cron: "0 2 * * 0" # every Sunday 2 AM UTC
+  workflow_dispatch:
+
+jobs:
+  update-strapi:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check for Strapi updates
+        id: check
+        run: |
+          CURRENT=$(npm list @strapi/strapi --depth=0 | grep @strapi/strapi@ | awk -F@ '{print $3}')
+          LATEST=$(npm view @strapi/strapi version)
+          echo "Current: $CURRENT"
+          echo "Latest: $LATEST"
+          echo "current=$CURRENT" >> $GITHUB_OUTPUT
+          echo "latest=$LATEST" >> $GITHUB_OUTPUT
+          if [ "$CURRENT" = "$LATEST" ]; then
+            echo "✅ Strapi is already up to date."
+            echo "update_needed=false" >> $GITHUB_OUTPUT
+          else
+            echo "🔄 Update available: $CURRENT → $LATEST"
+            echo "update_needed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Stop if no update needed
+        if: steps.check.outputs.update_needed == 'false'
+        run: echo "No Strapi update required. Exiting."
+
+      - name: Create update branch
+        if: steps.check.outputs.update_needed == 'true'
+        run: |
+          DATE=$(date +'%Y-%m-%d')
+          BRANCH="chore/strapi-update-$DATE"
+          git checkout -b $BRANCH origin/main
+          echo "BRANCH_NAME=$BRANCH" >> $GITHUB_ENV
+
+      - name: Run Strapi upgrade
+        if: steps.check.outputs.update_needed == 'true'
+        run: npx @strapi/upgrade latest
+
+      - name: Build project
+        if: steps.check.outputs.update_needed == 'true'
+        run: npm run build --if-present
+
+      - name: Run tests
+        if: steps.check.outputs.update_needed == 'true'
+        run: npm test --if-present
+
+      - name: Commit and push changes
+        if: steps.check.outputs.update_needed == 'true' && success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if [ -n "$(git status --porcelain)" ]; then
+            git add package.json package-lock.json
+            git commit -m "chore: update Strapi from ${{ steps.check.outputs.current }} → ${{ steps.check.outputs.latest }}"
+            git push origin $BRANCH_NAME
+            echo "✅ Strapi updated and pushed to $BRANCH_NAME"
+          else
+            echo "No file changes detected after upgrade."
+          fi
