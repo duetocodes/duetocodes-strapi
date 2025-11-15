@@ -693,6 +693,13 @@ export interface ApiPortfolioProjectPortfolioProject
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     sortIndex: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -715,6 +722,56 @@ export interface ApiPortfolioProjectPortfolioProject
       }>;
     title: Schema.Attribute.RichText &
       Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTechStackTagTechStackTag
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'tech_stack_tags';
+  info: {
+    displayName: 'TechStack/Tag';
+    pluralName: 'tech-stack-tags';
+    singularName: 'tech-stack-tag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tech-stack-tag.tech-stack-tag'
+    >;
+    portfolio_tech_stacks: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::tech-stack.tech-stack'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    tag: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -778,6 +835,10 @@ export interface ApiTechStackTechStack extends Struct.CollectionTypeSchema {
         number
       > &
       Schema.Attribute.DefaultTo<1>;
+    tech_stack_tags: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::tech-stack-tag.tech-stack-tag'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1301,6 +1362,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::portfolio-about-me.portfolio-about-me': ApiPortfolioAboutMePortfolioAboutMe;
       'api::portfolio-project.portfolio-project': ApiPortfolioProjectPortfolioProject;
+      'api::tech-stack-tag.tech-stack-tag': ApiTechStackTagTechStackTag;
       'api::tech-stack.tech-stack': ApiTechStackTechStack;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
