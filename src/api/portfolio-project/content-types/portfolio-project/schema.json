@@ -52,16 +52,6 @@
       "default": 1,
       "min": 0
     },
-    "identifier": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "required": true,
-      "unique": false
-    },
     "preview": {
       "type": "component",
       "pluginOptions": {
@@ -72,7 +62,7 @@
       "component": "shared.avatar",
       "repeatable": false
     },
-    "slug": {
+    "slugId": {
       "type": "uid",
       "pluginOptions": {
         "i18n": {
