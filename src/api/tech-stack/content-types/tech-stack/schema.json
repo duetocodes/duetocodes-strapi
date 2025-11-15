@@ -30,14 +30,6 @@
       "type": "string",
       "required": true
     },
-    "purpose": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "name": {
       "type": "string",
       "required": true

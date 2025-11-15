@@ -7,9 +7,8 @@ export default [
     config: {
       origin: [
         'http://localhost:3000',
-        'https://roaring-kitsune-3a5d42.netlify.app',
-        'https://duetocodes.com',          // Netlify production
-        'https://www.duetocodes.com',       // www version
+        'https://duetocodes.com',          // production
+        'https://www.duetocodes.com',       // production
       ],
       methods: ['GET', 'POST', 'PUT', 'DELETE'],
       headers: ['Content-Type', 'Authorization'],
