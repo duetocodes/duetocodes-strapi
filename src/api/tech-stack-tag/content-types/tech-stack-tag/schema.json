@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tech_stack_tags",
+  "info": {
+    "singularName": "tech-stack-tag",
+    "pluralName": "tech-stack-tags",
+    "displayName": "TechStack/Tag"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "tag": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "portfolio_tech_stacks": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tech-stack.tech-stack",
+      "mappedBy": "tech_stack_tags"
+    }
+  }
+}

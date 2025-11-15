@@ -56,6 +56,12 @@
       "required": true,
       "default": 1,
       "min": 0
+    },
+    "tech_stack_tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tech-stack-tag.tech-stack-tag",
+      "inversedBy": "portfolio_tech_stacks"
     }
   }
 }
