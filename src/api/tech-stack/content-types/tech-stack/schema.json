@@ -34,15 +34,6 @@
       "type": "string",
       "required": true
     },
-    "logo": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
-    },
     "sortIndex": {
       "type": "integer",
       "required": true,
@@ -54,6 +45,31 @@
       "relation": "manyToMany",
       "target": "api::tech-stack-tag.tech-stack-tag",
       "inversedBy": "portfolio_tech_stacks"
+    },
+    "icon_dark": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "icon_default": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
