@@ -668,13 +668,24 @@ export interface ApiTechStackTechStack extends Struct.CollectionTypeSchema {
         };
       }> &
       Schema.Attribute.DefaultTo<'No description.'>;
+    icon_dark: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    icon_default: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::tech-stack.tech-stack'
     >;
-    logo: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     sortIndex: Schema.Attribute.Integer &
