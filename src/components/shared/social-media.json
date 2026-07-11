@@ -18,7 +18,7 @@
     },
     "type": {
       "type": "enumeration",
-      "required": true,
+      "required": false,
       "enum": [
         "personal",
         "work"

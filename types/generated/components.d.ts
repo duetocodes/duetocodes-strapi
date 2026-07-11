@@ -32,8 +32,7 @@ export interface SharedSocialMedia extends Struct.ComponentSchema {
         number
       > &
       Schema.Attribute.DefaultTo<1>;
-    type: Schema.Attribute.Enumeration<['personal', 'work']> &
-      Schema.Attribute.Required;
+    type: Schema.Attribute.Enumeration<['personal', 'work']>;
     url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
