@@ -47,29 +47,25 @@
       "inversedBy": "portfolio_tech_stacks"
     },
     "icon_dark": {
-      "type": "media",
+      "type": "component",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
-      "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "component": "cloudinary.image",
+      "repeatable": false
     },
     "icon_default": {
-      "type": "media",
+      "type": "component",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ]
+      "component": "cloudinary.image",
+      "repeatable": false,
+      "required": true
     }
   }
 }

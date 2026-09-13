@@ -52,16 +52,6 @@
       "default": 1,
       "min": 0
     },
-    "preview": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "component": "shared.avatar",
-      "repeatable": false
-    },
     "slugId": {
       "type": "uid",
       "pluginOptions": {
@@ -70,6 +60,16 @@
         }
       },
       "required": true
+    },
+    "ogSocialImage": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "cloudinary.image",
+      "repeatable": false
     }
   }
 }

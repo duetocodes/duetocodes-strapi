@@ -249,6 +249,7 @@ export interface AdminSession extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'admin::session'> &
       Schema.Attribute.Private;
+    metadata: Schema.Attribute.JSON & Schema.Attribute.Private;
     origin: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Private;
@@ -431,6 +432,8 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     registrationToken: Schema.Attribute.String & Schema.Attribute.Private;
     resetPasswordToken: Schema.Attribute.String & Schema.Attribute.Private;
+    resetPasswordTokenExpiresAt: Schema.Attribute.DateTime &
+      Schema.Attribute.Private;
     roles: Schema.Attribute.Relation<'manyToMany', 'admin::role'> &
       Schema.Attribute.Private;
     updatedAt: Schema.Attribute.DateTime;
@@ -465,32 +468,10 @@ export interface ApiPortfolioAboutMePortfolioAboutMe
           localized: true;
         };
       }>;
-    avatar_dark: Schema.Attribute.Component<'shared.avatar', false> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    avatar_light: Schema.Attribute.Component<'shared.avatar', false> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    hero_dark: Schema.Attribute.Component<'shared.avatar', false> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    hero_light: Schema.Attribute.Component<'shared.avatar', false> &
-      Schema.Attribute.Required &
+    heroImage: Schema.Attribute.Component<'cloudinary.image', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -501,8 +482,7 @@ export interface ApiPortfolioAboutMePortfolioAboutMe
       'oneToMany',
       'api::portfolio-about-me.portfolio-about-me'
     >;
-    og_banner: Schema.Attribute.Component<'shared.avatar', false> &
-      Schema.Attribute.Required &
+    meImage: Schema.Attribute.Component<'cloudinary.image', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -553,7 +533,7 @@ export interface ApiPortfolioProjectPortfolioProject
       'oneToMany',
       'api::portfolio-project.portfolio-project'
     >;
-    preview: Schema.Attribute.Component<'shared.avatar', false> &
+    ogSocialImage: Schema.Attribute.Component<'cloudinary.image', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -678,13 +658,13 @@ export interface ApiTechStackTechStack extends Struct.CollectionTypeSchema {
         };
       }> &
       Schema.Attribute.DefaultTo<'No description.'>;
-    icon_dark: Schema.Attribute.Media<'images'> &
+    icon_dark: Schema.Attribute.Component<'cloudinary.image', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
         };
       }>;
-    icon_default: Schema.Attribute.Media<'images'> &
+    icon_default: Schema.Attribute.Component<'cloudinary.image', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1219,7 +1199,7 @@ export interface PluginUsersPermissionsUser
 }
 
 declare module '@strapi/strapi' {
-  export module Public {
+  export namespace Public {
     export interface ContentTypeSchemas {
       'admin::api-token': AdminApiToken;
       'admin::api-token-permission': AdminApiTokenPermission;

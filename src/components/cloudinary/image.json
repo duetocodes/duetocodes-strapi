@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_cloudinary_images",
+  "info": {
+    "displayName": "Image",
+    "icon": "cloud"
+  },
+  "options": {},
+  "attributes": {
+    "publicId": {
+      "type": "string",
+      "required": true
+    },
+    "alt": {
+      "type": "string"
+    },
+    "width": {
+      "type": "integer",
+      "min": 0
+    },
+    "height": {
+      "type": "integer",
+      "min": 0
+    }
+  },
+  "config": {}
+}
